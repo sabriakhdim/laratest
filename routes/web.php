@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +11,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','MyController@index');
+Route::get('/albums','MyController@portfolio');
+Route::get('/infoSceance','MyController@infoSceance');
+
+Route::get('/contact','MyController@contact');
+Route::post('/contact', 'MyController@store');
+
+
+Route::get('albums/{albumName}', 'DropboxController@getFromDropbox');
+Route::get('update', 'DropboxController@updateAllAlbumDropbox');
+
+Route::get('tarif', 'MyController@tarif');
